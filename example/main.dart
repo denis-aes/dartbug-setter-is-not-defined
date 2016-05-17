@@ -19,11 +19,16 @@ external void printFromJS(String comment, dynamic val);
 main() async {
   num iteration = 1;
   var theHash1 = new hash1(param: "paramValue$iteration");
+
+  // thi line OK
   theHash1._id = "idValueProp$iteration";
   printFromJS("simple hash $iteration", theHash1);
 
   iteration++;
   var theHash2 = new hash2(param: "paramValue$iteration");
+
+  //here I get notice from IDE
+  // The setter '_id' is not defined for the class
   theHash2._id = "idValueProp$iteration";
   printFromJS("simple hash $iteration", theHash2);
 }
